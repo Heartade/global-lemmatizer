@@ -37,5 +37,22 @@ programaban
 
 ## Limitations
 
-- Entries with wikitext used as the lemma form will register the wikitext as the lemma.
+- Entries with wikitext used as the lemma form will register the wikitext value as the lemma.
+```
+sqlite> select lemma, language from word_forms where form = 'SQL'; 
+w:Structured Query Language|English
+```
+- Form type doesn't take template aliases into consideration.
+```
+sqlite> select lemma, type, language from word_forms where form = 'MK';  
+Milton Keynes|init of|English
+Mong Kok|init of|English
+[[member|Member]] of [[Knesset]]|initialism of|English
+[[missionary]]'s [[kid]]|initialism of|English
+mahkamah konstitusi|initialism of|Indonesian
+mata kuliah|initialism of|Indonesian
+mooseknuckle|initialism of|English
+{{w|lang=en|Mario Kart}}|init of|English
+{{w|lang=en|Mortal Kombat}}|init of|English
+```
 - See TODO comments.
